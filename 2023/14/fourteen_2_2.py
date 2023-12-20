@@ -13,6 +13,29 @@ import sys
 # #OO..#....
 # """
 
+def tilt_lines(linesAsArray, direction):
+    numRows, numCols = len(linesAsArray), len(linesAsArray[0])
+
+    if direction == 'north':
+        for col in range(numCols):
+            for row in range(numRows):
+                process_cell(linesAsArray, row, col, -1, 0)
+
+    elif direction == 'south':
+        for col in range(numCols):
+            for row in reversed(range(numRows)):
+                process_cell(linesAsArray, row, col, 1, 0)
+
+    elif direction == 'west':
+        for row in range(numRows):
+            for col in range(numCols):
+                process_cell(linesAsArray, row, col, 0, -1)
+
+    elif direction == 'east':
+        for row in range(numRows):
+            for col in reversed(range(numCols)):
+                process_cell(linesAsArray, row, col, 0, 1)
+
 def process_cell(array, row, col, row_step, col_step):
     if array[row][col] == 'O':
         newRow, newCol = row + row_step, col + col_step
@@ -46,24 +69,10 @@ for cycle in range(cycles):
     sys.stdout.write(f"\r[{bar}] {percent_complete}%")
     sys.stdout.flush()
 
-    numRows, numCols = len(linesAsArray), len(linesAsArray[0])
-
-    for col in range(numCols):
-        for row in range(numRows):
-            process_cell(linesAsArray, row, col, -1, 0)
-
-    for row in range(numRows):
-        for col in range(numCols):
-            process_cell(linesAsArray, row, col, 0, -1)
-
-
-    for col in range(numCols):
-        for row in reversed(range(numRows)):
-            process_cell(linesAsArray, row, col, 1, 0)
-
-    for row in range(numRows):
-        for col in reversed(range(numCols)):
-            process_cell(linesAsArray, row, col, 0, 1)
+    tilt_lines(linesAsArray, 'north')
+    tilt_lines(linesAsArray, 'west')
+    tilt_lines(linesAsArray, 'south')
+    tilt_lines(linesAsArray, 'east')
 
 # print('#######')
 # for line in linesAsArray:
