@@ -38,7 +38,7 @@ import time
 # 56 93 4"""
 
 with open("input.txt") as f:
-    input = f.read()
+     input = f.read()
 
 def get_second_numbers(arrays, x):
     return [sub_array[1] for sub_array in arrays if sub_array[0] == x]
@@ -71,11 +71,11 @@ def calculation(seed):
         convertTable = []
         for index, line in enumerate(lines):
             destSourRang = line.split(' ')
-            for rangeSp in range(int(destSourRang[2])):
-                #convertTable.append([int(destSourRang[1]) + rangeSp, int(destSourRang[0]) + rangeSp])
-                if currentNumber == (int(destSourRang[1]) + rangeSp):
-                    currentNumber = int(destSourRang[0]) + rangeSp
-                    break
+            sourEnd = int(destSourRang[1]) + int(destSourRang[2])
+            if int(destSourRang[1]) <= currentNumber <= sourEnd:
+                rangeToCurrentNum = currentNumber - int(destSourRang[1])
+                currentNumber = int(destSourRang[0]) + rangeToCurrentNum
+                break
             #print("new convert")
             loadingbar(index, len(lines), start_time)
 
