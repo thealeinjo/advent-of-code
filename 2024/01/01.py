@@ -4,7 +4,7 @@
 firstList = []
 secondList = []
 sumList = []
-with open('01/input_x.txt', 'r') as file:
+with open('2024/01/input_x.txt', 'r') as file:
     content = file.read().splitlines()
     for count, i in enumerate(content):
         splitContent = content[count].split('   ')
