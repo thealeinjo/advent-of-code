@@ -4,3 +4,14 @@
 1 3 2 4 5
 8 6 4 4 1
 1 3 6 7 9
+1 2 5 2 6
+
+1488346-75bb10be
+What's in it for me?
+• Improve your coding skills
+• Network and share your code with other colleagues
+• Challenge yourself with other colleagues on our Leaderboard
+• Daily support calls: 11:30 am every workday
+• Have fun!
+• With a bit of luck, you will be among the first five and win a prize
+• In addition, we will be giving away 5 prizes, to participants who have solved more than 5
