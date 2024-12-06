@@ -63,19 +63,18 @@ for linenumber, line in enumerate(arrayOrders):
                     break
 
 # if allLines index not in wronglinenumbers write 'right' into the array
-for i in range(0, len(allLines)):
+for i, line in enumerate(allLines):
     if i not in wrongLineNumbers:
         allLines[i] = 'RIGHT'
 
-#print('all correct: ' + str(allLines))
+allIncorrectLines = [i for i in allLines if i != 'RIGHT']
 
 orderedLines = []
 
-for i in allLines:
-    if i != 'RIGHT':
-        neworder = order_correctly(i)
-        print(neworder)
-        orderedLines.append(neworder)
+for i in allIncorrectLines:
+    neworder = order_correctly(i)
+    print(neworder)
+    orderedLines.append(neworder)
 
 count = 0
 for i in orderedLines:
